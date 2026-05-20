@@ -821,8 +821,8 @@ hr.divider {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .wf-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.22);
 }
 .wf-card-header {
   height: 160px;
@@ -898,9 +898,9 @@ hr.divider {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.8;
+  opacity: 0.55;
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .hero-inner {
     grid-template-columns: 1fr;
     gap: 0;
