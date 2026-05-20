@@ -7,6 +7,45 @@ export const metadata: Metadata = {
     '不卖工具，不做平台。进驻企业现场，梳理真实业务流程，搭建可交付、可运行、可迭代的 AI Workflow。',
 }
 
+/* ── Hero diagram ── */
+function WorkflowDiagram() {
+  const steps = ['询盘接入', 'AI 解析', '产品匹配', '草稿生成', '人工确认', '回复发送']
+  const nH = 34
+  const cH = 28
+  const w = 180
+  const h = steps.length * nH + (steps.length - 1) * cH
+
+  return (
+    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} aria-hidden="true">
+      {steps.map((step, i) => {
+        const y = i * (nH + cH)
+        const mid = w / 2
+        return (
+          <g key={step}>
+            <rect x="0" y={y} width={w} height={nH} rx="4"
+              stroke="rgba(255,255,255,0.09)" strokeWidth="0.5"
+              fill="rgba(255,255,255,0.02)" />
+            <text x={mid} y={y + nH / 2 + 4} textAnchor="middle"
+              fontFamily="monospace" fontSize="11" fill="rgba(255,255,255,0.28)">
+              {step}
+            </text>
+            {i < steps.length - 1 && (
+              <>
+                <line x1={mid} y1={y + nH} x2={mid} y2={y + nH + cH - 8}
+                  stroke="rgba(255,255,255,0.09)" strokeWidth="0.5" strokeDasharray="2 3" />
+                <polygon
+                  points={`${mid - 4},${y + nH + cH - 10} ${mid + 4},${y + nH + cH - 10} ${mid},${y + nH + cH - 2}`}
+                  fill="rgba(255,255,255,0.1)" />
+              </>
+            )}
+          </g>
+        )
+      })}
+    </svg>
+  )
+}
+
+/* ── Card icons ── */
 function IconEnvelopeLightning() {
   return (
     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="rgba(0,0,0,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -89,12 +128,14 @@ function IconCalendarBot() {
   )
 }
 
+/* ── Workflow card data ── */
 const workflowCards = [
   {
     color: '#C4956A',
     Icon: IconEnvelopeLightning,
     title: '外贸询盘自动回复',
-    desc: '客户邮件进来 → AI 提取规格需求 → 匹配产品库 → 生成报价草稿 → 业务员审核发送',
+    desc: '客户邮件进来，AI 提取规格需求，匹配产品库，生成报价草稿，业务员确认后发送。',
+    pipeline: '客户邮件 → 规格提取 → 产品匹配 → 报价草稿 → 人工发送',
     category: '外贸业务',
     status: 'deployed' as const,
   },
@@ -102,23 +143,26 @@ const workflowCards = [
     color: '#7A9E7E',
     Icon: IconDocPen,
     title: '跨境产品 Listing 生成',
-    desc: '工厂提供产品参数和图片 → AI 生成多平台标准化 Listing → 支持 Amazon / Wayfair / TikTok Shop',
+    desc: '工厂提供产品参数和图片，AI 生成多平台标准化 Listing，支持 Amazon / Wayfair / TikTok Shop。',
+    pipeline: '产品参数 → 多语言生成 → 平台格式化 → 审核上架',
     category: '跨境电商',
     status: 'deployed' as const,
   },
   {
     color: '#7B8FA3',
     Icon: IconChatDB,
-    title: '客服 AI 知识库搭建',
-    desc: '整理产品 FAQ、售后政策、物流规则 → 搭建结构化知识库 → 客服自动应答',
+    title: '客服 FAQ 自动应答',
+    desc: '整理产品 FAQ、售后政策、物流规则，搭建结构化知识库，常见问题自动应答。',
+    pipeline: '客户问题 → 知识库检索 → 答案匹配 → 自动回复',
     category: '客户服务',
     status: 'building' as const,
   },
   {
     color: '#9E8BA6',
     Icon: IconTableScale,
-    title: '供应商报价对比 Workflow',
-    desc: '多家供应商报价单 → AI 提取关键参数 → 自动生成对比表 → 标注差异和建议',
+    title: '供应商报价对比',
+    desc: '多家供应商报价单格式各异，AI 统一提取关键参数，自动生成横向对比表，标注差异和建议。',
+    pipeline: '报价单上传 → 参数提取 → 横向对比 → 差异标注',
     category: '供应链',
     status: 'planned' as const,
   },
@@ -126,15 +170,17 @@ const workflowCards = [
     color: '#B07D6A',
     Icon: IconMagnifierList,
     title: '验货报告自动生成',
-    desc: '验货员拍照 + 语音记录 → AI 结构化整理 → 生成标准验货报告 → 自动发送给客户',
+    desc: '验货员现场拍照加语音记录，AI 结构化整理，生成标准验货报告，自动发送给客户。',
+    pipeline: '现场拍照 → 语音记录 → 结构整理 → 报告发送',
     category: '品控',
     status: 'planned' as const,
   },
   {
     color: '#8A9BA8',
     Icon: IconCalendarBot,
-    title: '团队 AI 工作日报',
-    desc: '团队成员每日语音/文字输入工作内容 → AI 汇总 → 自动生成结构化日报 → 推送管理层',
+    title: '团队日报自动整理',
+    desc: '团队成员每日语音或文字输入工作内容，AI 汇总，自动生成结构化日报，推送管理层。',
+    pipeline: '成员输入 → 内容汇总 → 日报生成 → 管理层推送',
     category: '团队管理',
     status: 'building' as const,
   },
@@ -146,44 +192,55 @@ const statusLabel: Record<string, string> = {
   planned: '规划中',
 }
 
+/* ── Page ── */
 export default function HomePage() {
   return (
     <>
       {/* ── SECTION 1: HERO ── */}
       <section className="section" style={{ paddingTop: 72 }}>
         <div className="container">
-          <div className="anim-1 eyebrow">AI Workflow 服务</div>
-          <h1
-            className="anim-2"
-            style={{
-              fontFamily: 'var(--font-dm-serif), serif',
-              fontSize: 'clamp(38px, 5vw, 58px)',
-              lineHeight: 1.08,
-              letterSpacing: '-1px',
-              marginBottom: 20,
-              maxWidth: 680,
-            }}
-          >
-            帮你的团队，<br />
-            搭出第一条能跑的 AI 工作流。
-          </h1>
-          <p
-            className="anim-3"
-            style={{
-              fontSize: 16,
-              color: 'var(--muted)',
-              lineHeight: 1.85,
-              maxWidth: 520,
-              marginBottom: 36,
-            }}
-          >
-            不卖工具，不做平台。<br />
-            我们进驻企业现场，梳理真实业务流程，<br />
-            搭建可交付、可运行、可迭代的 AI Workflow。
-          </p>
-          <div className="anim-4" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <a href="mailto:MashiTeam@163.com" className="btn-primary">预约工作流诊断</a>
-            <a href="#workflow-cases" className="btn-ghost">查看案例 ↓</a>
+          <div className="hero-inner">
+            {/* Left */}
+            <div>
+              <div className="anim-1 eyebrow">AI Workflow 服务</div>
+              <h1
+                className="anim-2"
+                style={{
+                  fontFamily: 'var(--font-dm-serif), serif',
+                  fontSize: 'clamp(38px, 5vw, 58px)',
+                  lineHeight: 1.08,
+                  letterSpacing: '-1px',
+                  marginBottom: 20,
+                  maxWidth: 620,
+                }}
+              >
+                帮你的团队，<br />
+                搭出第一条能跑的 AI 工作流。
+              </h1>
+              <p
+                className="anim-3"
+                style={{
+                  fontSize: 16,
+                  color: 'var(--muted)',
+                  lineHeight: 1.85,
+                  maxWidth: 480,
+                  marginBottom: 36,
+                }}
+              >
+                不卖工具，不做平台。<br />
+                我们进驻企业现场，梳理真实业务流程，<br />
+                搭建可交付、可运行、可迭代的 AI Workflow。
+              </p>
+              <div className="anim-4" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                <a href="mailto:MashiTeam@163.com" className="btn-primary">聊聊你的业务流程</a>
+                <a href="#workflow-cases" className="btn-ghost">查看案例 ↓</a>
+              </div>
+            </div>
+
+            {/* Right – minimal workflow diagram */}
+            <div className="hero-diagram" aria-hidden="true">
+              <WorkflowDiagram />
+            </div>
           </div>
         </div>
       </section>
@@ -207,6 +264,7 @@ export default function HomePage() {
                 <div className="wf-card-body">
                   <div className="wf-card-title">{card.title}</div>
                   <div className="wf-card-desc">{card.desc}</div>
+                  <div className="wf-pipeline">{card.pipeline}</div>
                   <div className="wf-card-tags">
                     <span className="tag">{card.category}</span>
                     <span className={`wf-badge wf-badge-${card.status}`}>
@@ -234,7 +292,6 @@ export default function HomePage() {
           </div>
 
           <div className="service-grid">
-            {/* 01 */}
             <div className="service-card">
               <span className="service-arrow">↗</span>
               <div className="service-num">01</div>
@@ -249,7 +306,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* 02 */}
             <div className="service-card">
               <span className="service-arrow">↗</span>
               <div className="service-num">02</div>
@@ -264,7 +320,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* 03 */}
             <div className="service-card">
               <span className="service-arrow">↗</span>
               <div className="service-num">03</div>
@@ -282,7 +337,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SECTION 4: HOW IT WORKS ── */}
+      {/* ── SECTION 4: MANIFESTO ── */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="manifesto-box">
+            <p className="manifesto-headline">我们不会一上来就卖你 AI。</p>
+            <div className="manifesto-cols">
+              <div>
+                <div className="manifesto-col-label">我们不会</div>
+                <ul className="manifesto-list manifesto-list--no">
+                  <li>卖通用 AI 课程</li>
+                  <li>装一堆没人用的软件</li>
+                  <li>承诺"全自动 AI 公司"</li>
+                  <li>用 Demo 替代真实业务</li>
+                </ul>
+              </div>
+              <div>
+                <div className="manifesto-col-label">我们会</div>
+                <ul className="manifesto-list manifesto-list--yes">
+                  <li>先看真实流程</li>
+                  <li>找最值得 AI 化的一步</li>
+                  <li>跑通第一个 Workflow</li>
+                  <li>再逐步扩展</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 5: HOW IT WORKS ── */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <div className="section-header">
@@ -322,7 +406,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SECTION 5: CTA ── */}
+      {/* ── SECTION 6: CTA ── */}
       <section className="section-sm">
         <div className="container">
           <div className="cta-box">
@@ -332,12 +416,12 @@ export default function HomePage() {
                 哪个动作最适合先用 AI 跑？
               </h2>
               <p className="cta-sub">
-                预约一次免费的现场诊断。<br />
-                我们来看，不是你来讲。
+                不是卖软件。<br />
+                先看看 AI 最适合帮你做哪一步。
               </p>
               <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                 <a href="mailto:MashiTeam@163.com" className="btn-primary">
-                  预约 AI 工作流诊断
+                  聊聊你的业务流程
                 </a>
               </div>
             </div>
