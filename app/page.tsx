@@ -2,14 +2,14 @@ import type { Metadata } from 'next'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Makox · 帮你搭出第一条能跑的 AI 工作流',
+  title: 'Makox · 帮制造业团队跑通第一条 AI Workflow',
   description:
-    '不卖工具，不做平台。进驻企业现场，梳理真实业务流程，搭建可交付、可运行、可迭代的 AI Workflow。',
+    '从询盘、报价、客服到资料整理，把 AI 真正接进工厂每天运转的业务流程。进驻现场，2–4 周交付。',
 }
 
 /* ── Hero diagram ── */
 function WorkflowDiagram() {
-  const steps = ['询盘接入', 'AI 解析', '产品匹配', '草稿生成', '人工确认', '回复发送']
+  const steps = ['询盘接入', '规格提取', '产品匹配', '报价草稿', '人工确认', '客户发送']
   const nH = 34
   const cH = 28
   const w = 180
@@ -214,8 +214,8 @@ export default function HomePage() {
                   maxWidth: 620,
                 }}
               >
-                帮你的团队，<br />
-                搭出第一条能跑的 AI 工作流。
+                帮制造业团队，<br />
+                跑通第一条 AI Workflow。
               </h1>
               <p
                 className="anim-3"
@@ -227,9 +227,8 @@ export default function HomePage() {
                   marginBottom: 36,
                 }}
               >
-                不卖工具，不做平台。<br />
-                我们进驻企业现场，梳理真实业务流程，<br />
-                搭建可交付、可运行、可迭代的 AI Workflow。
+                从询盘、报价、客服到资料整理，<br />
+                把 AI 真正接进工厂每天运转的业务流程。
               </p>
               <div className="anim-4" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                 <a href="mailto:MashiTeam@163.com" className="btn-primary">聊聊你的业务流程</a>
