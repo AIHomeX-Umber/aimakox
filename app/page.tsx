@@ -23,19 +23,19 @@ function WorkflowDiagram() {
         return (
           <g key={step}>
             <rect x="0" y={y} width={w} height={nH} rx="4"
-              stroke="rgba(255,255,255,0.09)" strokeWidth="0.5"
-              fill="rgba(255,255,255,0.02)" />
+              stroke="rgba(255,255,255,0.16)" strokeWidth="0.5"
+              fill="rgba(255,255,255,0.04)" />
             <text x={mid} y={y + nH / 2 + 4} textAnchor="middle"
-              fontFamily="monospace" fontSize="11" fill="rgba(255,255,255,0.28)">
+              fontFamily="monospace" fontSize="11" fill="rgba(255,255,255,0.38)">
               {step}
             </text>
             {i < steps.length - 1 && (
               <>
                 <line x1={mid} y1={y + nH} x2={mid} y2={y + nH + cH - 8}
-                  stroke="rgba(255,255,255,0.09)" strokeWidth="0.5" strokeDasharray="2 3" />
+                  stroke="rgba(255,255,255,0.15)" strokeWidth="0.5" strokeDasharray="2 3" />
                 <polygon
                   points={`${mid - 4},${y + nH + cH - 10} ${mid + 4},${y + nH + cH - 10} ${mid},${y + nH + cH - 2}`}
-                  fill="rgba(255,255,255,0.1)" />
+                  fill="rgba(255,255,255,0.22)" />
               </>
             )}
           </g>

@@ -73,7 +73,7 @@ img { max-width: 100%; display: block; }
 }
 .nav-link {
   font-size: 13px;
-  color: var(--muted);
+  color: #848280;
   transition: color 0.2s;
 }
 .nav-link:hover { color: var(--text); }
@@ -898,7 +898,7 @@ hr.divider {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.55;
+  opacity: 0.72;
 }
 @media (max-width: 900px) {
   .hero-inner {
