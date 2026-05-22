@@ -10,7 +10,7 @@ export default function Nav() {
   return (
     <nav className="nav">
       <Link href={isEN ? '/en' : '/'} className="nav-logo">
-        Makox
+        Ma<span className="logo-k">k</span>ox
       </Link>
 
       <div className="nav-links">

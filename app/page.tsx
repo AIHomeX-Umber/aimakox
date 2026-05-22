@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Footer from '@/components/Footer'
+import WeChatQR from '@/components/WeChatQR'
 
 export const metadata: Metadata = {
   title: 'Makox · 帮制造业团队跑通第一条 AI Workflow',
@@ -128,6 +129,54 @@ function IconCalendarBot() {
   )
 }
 
+/* ── Service icons (SVG, brand gold stroke) ── */
+function ServiceIconSearch() {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#d4a853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="17" cy="17" r="10" />
+      <line x1="25" y1="25" x2="35" y2="35" />
+      <line x1="12" y1="17" x2="22" y2="17" />
+      <line x1="17" y1="12" x2="17" y2="22" />
+    </svg>
+  )
+}
+
+function ServiceIconWorkflow() {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#d4a853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="7" cy="20" r="3" />
+      <circle cx="20" cy="8" r="3" />
+      <circle cx="20" cy="32" r="3" />
+      <circle cx="33" cy="20" r="3" />
+      <line x1="10" y1="19" x2="17" y2="10" />
+      <line x1="10" y1="21" x2="17" y2="30" />
+      <line x1="23" y1="9" x2="30" y2="18" />
+      <line x1="23" y1="31" x2="30" y2="22" />
+    </svg>
+  )
+}
+
+function ServiceIconRefresh() {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#d4a853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M6 20 A14 14 0 1 0 13 8" />
+      <polyline points="6,4 6,10 12,10" />
+    </svg>
+  )
+}
+
+function ServiceIconPackage() {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#d4a853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M20 4 L36 13 L36 27 L20 36 L4 27 L4 13 Z" />
+      <line x1="4" y1="13" x2="20" y2="22" />
+      <line x1="36" y1="13" x2="20" y2="22" />
+      <line x1="20" y1="22" x2="20" y2="36" />
+      <line x1="12" y1="8.5" x2="28" y2="17.5" />
+    </svg>
+  )
+}
+
 /* ── Workflow card data ── */
 const workflowCards = [
   {
@@ -192,6 +241,26 @@ const statusLabel: Record<string, string> = {
   planned: '规划中',
 }
 
+/* ── Pain-point data ── */
+const painItems = [
+  {
+    pain: '买了工具，团队不会用也不想用',
+    response: '先进厂看真实流程，找一个最值得自动化的动作',
+  },
+  {
+    pain: '供应商装了一堆系统，数据跑不通',
+    response: '先梳理数据结构，再接 AI——不反过来',
+  },
+  {
+    pain: '听了很多 AI 课，不知道从哪下手',
+    response: '60 分钟免费诊断，直接告诉你先做哪一件',
+  },
+  {
+    pain: '怕投入大、周期长、看不到效果',
+    response: '2–4 周交付一个跑通的 Workflow，先证明再扩展',
+  },
+]
+
 /* ── Page ── */
 export default function HomePage() {
   return (
@@ -221,7 +290,7 @@ export default function HomePage() {
                 className="anim-3"
                 style={{
                   fontSize: 16,
-                  color: 'var(--muted)',
+                  color: 'var(--text-secondary)',
                   lineHeight: 1.85,
                   maxWidth: 480,
                   marginBottom: 36,
@@ -231,7 +300,7 @@ export default function HomePage() {
                 把 AI 真正接进工厂每天运转的业务流程。
               </p>
               <div className="anim-4" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                <a href="mailto:MashiTeam@163.com" className="btn-primary">聊聊你的业务流程</a>
+                <a href="mailto:hello@makox.ai" className="btn-primary">聊聊你的业务流程</a>
                 <a href="#workflow-cases" className="btn-ghost">查看案例 ↓</a>
               </div>
             </div>
@@ -290,11 +359,11 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="service-grid">
+          <div className="service-grid service-grid-2x2">
             <div className="service-card">
               <span className="service-arrow">↗</span>
               <div className="service-num">01</div>
-              <div className="service-icon">🔍</div>
+              <div className="service-icon"><ServiceIconSearch /></div>
               <div className="service-name">流程诊断</div>
               <p className="service-desc">
                 进厂看你的团队每天怎么干活。<br />
@@ -308,7 +377,7 @@ export default function HomePage() {
             <div className="service-card">
               <span className="service-arrow">↗</span>
               <div className="service-num">02</div>
-              <div className="service-icon">⚙️</div>
+              <div className="service-icon"><ServiceIconWorkflow /></div>
               <div className="service-name">Workflow 搭建</div>
               <p className="service-desc">
                 把诊断结果落地成可运行的工作流。<br />
@@ -322,7 +391,7 @@ export default function HomePage() {
             <div className="service-card">
               <span className="service-arrow">↗</span>
               <div className="service-num">03</div>
-              <div className="service-icon">🔄</div>
+              <div className="service-icon"><ServiceIconRefresh /></div>
               <div className="service-name">持续迭代</div>
               <p className="service-desc">
                 上线不是终点。<br />
@@ -332,35 +401,42 @@ export default function HomePage() {
                 <span className="tag">按月服务</span>
               </div>
             </div>
+
+            <div className="service-card">
+              <span className="service-arrow">↗</span>
+              <div className="service-num">04</div>
+              <div className="service-icon"><ServiceIconPackage /></div>
+              <div className="service-name">Agent 启动包</div>
+              <p className="service-desc">
+                诊断之后，自己先跑起来。标准化 AI 落地套件：预配置模板 + 数据接入指南 + Workflow SOP + 2 小时配置辅导。
+              </p>
+              <div className="service-tags">
+                <span className="tag">标准化交付</span>
+                <span className="tag">轻量启动</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── SECTION 4: MANIFESTO ── */}
+      {/* ── SECTION 4: PAIN-POINT ── */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
-          <div className="manifesto-box">
-            <p className="manifesto-headline">我们不会一上来就卖你 AI。</p>
-            <div className="manifesto-cols">
-              <div>
-                <div className="manifesto-col-label">我们不会</div>
-                <ul className="manifesto-list manifesto-list--no">
-                  <li>卖通用 AI 课程</li>
-                  <li>装一堆没人用的软件</li>
-                  <li>承诺"全自动 AI 公司"</li>
-                  <li>用 Demo 替代真实业务</li>
-                </ul>
+          <h2 className="pain-headline">你可能试过 AI——但没跑起来。</h2>
+          <div className="pain-list">
+            {painItems.map((item, i) => (
+              <div key={i} className="pain-item">
+                <div className="pain-item-left">
+                  <span className="pain-x">✕</span>
+                  <span className="pain-text">{item.pain}</span>
+                </div>
+                <div className="pain-item-sep">→</div>
+                <div className="pain-item-right">
+                  <span className="pain-arrow-sym">→</span>
+                  <span className="pain-response">{item.response}</span>
+                </div>
               </div>
-              <div>
-                <div className="manifesto-col-label">我们会</div>
-                <ul className="manifesto-list manifesto-list--yes">
-                  <li>先看真实流程</li>
-                  <li>找最值得 AI 化的一步</li>
-                  <li>跑通第一个 Workflow</li>
-                  <li>再逐步扩展</li>
-                </ul>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -419,22 +495,13 @@ export default function HomePage() {
                 先看看 AI 最适合帮你做哪一步。
               </p>
               <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                <a href="mailto:MashiTeam@163.com" className="btn-primary">
+                <a href="mailto:hello@makox.ai" className="btn-primary">
                   聊聊你的业务流程
                 </a>
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
-              <div className="wechat-qr">
-                <span style={{ fontSize: 28 }}>💬</span>
-                <span>WeChat QR</span>
-              </div>
-              <p style={{ fontFamily: 'var(--font-dm-mono)', fontSize: 10, color: 'var(--muted)', textAlign: 'center', letterSpacing: '0.04em', lineHeight: 1.6 }}>
-                扫码预约免费现场诊断<br />
-                <span style={{ opacity: 0.7 }}>通常 24 小时内回复 · 首次诊断免费</span>
-              </p>
-            </div>
+            <WeChatQR />
           </div>
         </div>
       </section>

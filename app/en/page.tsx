@@ -2,6 +2,76 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
 
+/* ── Service icons (SVG, brand gold stroke) ── */
+function ServiceIconSearch() {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#d4a853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="17" cy="17" r="10" />
+      <line x1="25" y1="25" x2="35" y2="35" />
+      <line x1="12" y1="17" x2="22" y2="17" />
+      <line x1="17" y1="12" x2="17" y2="22" />
+    </svg>
+  )
+}
+
+function ServiceIconWorkflow() {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#d4a853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="7" cy="20" r="3" />
+      <circle cx="20" cy="8" r="3" />
+      <circle cx="20" cy="32" r="3" />
+      <circle cx="33" cy="20" r="3" />
+      <line x1="10" y1="19" x2="17" y2="10" />
+      <line x1="10" y1="21" x2="17" y2="30" />
+      <line x1="23" y1="9" x2="30" y2="18" />
+      <line x1="23" y1="31" x2="30" y2="22" />
+    </svg>
+  )
+}
+
+function ServiceIconData() {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#d4a853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <ellipse cx="20" cy="10" rx="12" ry="4" />
+      <line x1="8" y1="10" x2="8" y2="30" />
+      <line x1="32" y1="10" x2="32" y2="30" />
+      <ellipse cx="20" cy="20" rx="12" ry="4" />
+      <ellipse cx="20" cy="30" rx="12" ry="4" />
+    </svg>
+  )
+}
+
+function ServiceIconPackage() {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#d4a853" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M20 4 L36 13 L36 27 L20 36 L4 27 L4 13 Z" />
+      <line x1="4" y1="13" x2="20" y2="22" />
+      <line x1="36" y1="13" x2="20" y2="22" />
+      <line x1="20" y1="22" x2="20" y2="36" />
+      <line x1="12" y1="8.5" x2="28" y2="17.5" />
+    </svg>
+  )
+}
+
+const enPainItems = [
+  {
+    pain: "Bought tools, but no one on the team uses them",
+    response: "We start by watching your real workflow — and find the one step worth automating first",
+  },
+  {
+    pain: "Vendors installed systems, but the data doesn't connect",
+    response: "We structure your data first, then connect AI — not the other way around",
+  },
+  {
+    pain: "Attended AI workshops, still don't know where to start",
+    response: "60-minute free diagnosis — we tell you exactly which one thing to do first",
+  },
+  {
+    pain: "Worried about high cost, long timelines, no visible results",
+    response: "We deliver a working Workflow in 2–4 weeks — prove it first, then scale",
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Makox · AI-Native Manufacturing Operations',
   description:
@@ -35,7 +105,7 @@ export default function EnglishHomePage() {
               </h1>
               <p
                 className="anim-3"
-                style={{ fontSize: 16, color: 'var(--muted)', lineHeight: 1.75, maxWidth: 460, marginBottom: 36 }}
+                style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.75, maxWidth: 460, marginBottom: 36 }}
               >
                 Makox works with export-driven manufacturers to integrate AI into sales,
                 operations, workflows, and global growth.
@@ -52,7 +122,7 @@ export default function EnglishHomePage() {
                 <div className="stat-icon">🤖</div>
                 <div>
                   <div className="stat-label">Deployed</div>
-                  <div className="stat-value">AI agent systems for 6 enterprises</div>
+                  <div className="stat-value">6 enterprise clients · 2 full deployments</div>
                 </div>
               </div>
               <div className="stat-card slide-2">
@@ -135,37 +205,31 @@ export default function EnglishHomePage() {
             </p>
           </div>
 
-          <div className="service-grid">
+          <div className="service-grid service-grid-2x2">
             <div className="service-card">
               <span className="service-arrow">↗</span>
               <div className="service-num">01</div>
-              <div className="service-icon">🤖</div>
-              <div className="service-name">AI Agent Deployment</div>
+              <div className="service-icon"><ServiceIconSearch /></div>
+              <div className="service-name">Workflow Diagnosis</div>
               <p className="service-desc">
-                Custom AI agent teams for content, sales, support, and data operations.
-                End-to-end deployment replacing repetitive manual work across your
-                export operations.
+                We come on-site and watch how your team actually works. Find the one
+                operation worth automating first — before spending a dollar.
               </p>
               <div className="service-tags">
-                <span className="tag">Multi-agent systems</span>
-                <span className="tag">Private deployment</span>
-                <span className="tag">Export-ready</span>
+                <span className="tag">60 min · Free</span>
               </div>
             </div>
 
             <div className="service-card">
               <span className="service-arrow">↗</span>
               <div className="service-num">02</div>
-              <div className="service-icon">👤</div>
-              <div className="service-name">AI Workforce Building</div>
+              <div className="service-icon"><ServiceIconWorkflow /></div>
+              <div className="service-name">Workflow Build</div>
               <p className="service-desc">
-                From role analysis to AI digital worker deployment. Covering trade
-                follow-ups, multilingual content, customer response — one person doing
-                the work of five.
+                Turn the diagnosis into a live, running workflow. Connect AI models,
+                wire up your real data, test and validate in your actual environment.
               </p>
               <div className="service-tags">
-                <span className="tag">Role-level AI</span>
-                <span className="tag">Multilingual</span>
                 <span className="tag">2–4 week delivery</span>
               </div>
             </div>
@@ -173,18 +237,54 @@ export default function EnglishHomePage() {
             <div className="service-card">
               <span className="service-arrow">↗</span>
               <div className="service-num">03</div>
-              <div className="service-icon">🗂️</div>
-              <div className="service-name">Data Governance & Workflow Structuring</div>
+              <div className="service-icon"><ServiceIconData /></div>
+              <div className="service-name">Data & SOP Structuring</div>
               <p className="service-desc">
-                Mapping existing workflows, building AI-ready data structures, designing
-                standardized SOPs so agents can actually run — not just be installed.
+                Map existing workflows, build AI-ready data structures, design
+                standardized SOPs so automation can actually run — not just be installed.
               </p>
               <div className="service-tags">
                 <span className="tag">SOP design</span>
-                <span className="tag">Data structuring</span>
                 <span className="tag">AI readiness</span>
               </div>
             </div>
+
+            <div className="service-card">
+              <span className="service-arrow">↗</span>
+              <div className="service-num">04</div>
+              <div className="service-icon"><ServiceIconPackage /></div>
+              <div className="service-name">Agent Starter Kit</div>
+              <p className="service-desc">
+                Start running on your own after diagnosis. Includes 1 pre-configured
+                template + data integration guide + Workflow SOP + 2 hours of setup coaching.
+              </p>
+              <div className="service-tags">
+                <span className="tag">Standardized</span>
+                <span className="tag">Upgrade anytime</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 3B: PAIN-POINT ── */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <h2 className="pain-headline">You&apos;ve probably tried AI — and it didn&apos;t stick.</h2>
+          <div className="pain-list">
+            {enPainItems.map((item, i) => (
+              <div key={i} className="pain-item">
+                <div className="pain-item-left">
+                  <span className="pain-x">✕</span>
+                  <span className="pain-text">{item.pain}</span>
+                </div>
+                <div className="pain-item-sep">→</div>
+                <div className="pain-item-right">
+                  <span className="pain-arrow-sym">→</span>
+                  <span className="pain-response">{item.response}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -359,7 +459,7 @@ export default function EnglishHomePage() {
 
           <div style={{ textAlign: 'center', marginTop: 8 }}>
             <Link href="/contact" className="btn-primary">
-              Book a 30-min Discovery Call
+              Book a Free Discovery Call
             </Link>
           </div>
         </div>
