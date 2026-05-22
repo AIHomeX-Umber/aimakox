@@ -27,7 +27,7 @@ function WorkflowDiagram() {
               stroke="rgba(255,255,255,0.16)" strokeWidth="0.5"
               fill="rgba(255,255,255,0.04)" />
             <text x={mid} y={y + nH / 2 + 4} textAnchor="middle"
-              fontFamily="monospace" fontSize="11" fill="rgba(255,255,255,0.38)">
+              fontFamily="monospace" fontSize="11" fill="rgba(255,255,255,0.72)">
               {step}
             </text>
             {i < steps.length - 1 && (
@@ -300,7 +300,7 @@ export default function HomePage() {
                 把 AI 真正接进工厂每天运转的业务流程。
               </p>
               <div className="anim-4" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                <a href="mailto:hello@makox.ai" className="btn-primary">聊聊你的业务流程</a>
+                <a href="mailto:MashiTeam@163.com" className="btn-primary">聊聊你的业务流程</a>
                 <a href="#workflow-cases" className="btn-ghost">查看案例 ↓</a>
               </div>
             </div>
@@ -495,7 +495,7 @@ export default function HomePage() {
                 先看看 AI 最适合帮你做哪一步。
               </p>
               <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                <a href="mailto:hello@makox.ai" className="btn-primary">
+                <a href="mailto:MashiTeam@163.com" className="btn-primary">
                   聊聊你的业务流程
                 </a>
               </div>

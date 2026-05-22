@@ -14,8 +14,8 @@ export default function Footer() {
           {/* Middle: contact */}
           <div>
             <div className="footer-col-label">联系</div>
-            <a href="mailto:hello@makox.ai" className="footer-email-link">
-              hello@makox.ai
+            <a href="mailto:MashiTeam@163.com" className="footer-email-link">
+              MashiTeam@163.com
             </a>
             <div className="footer-wechat-hint">微信：扫码 · 首页底部</div>
           </div>

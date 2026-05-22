@@ -13,9 +13,9 @@
   --brand-gold: #d4a853;
 }
 
-/* ── LOGO K BRAND ACCENT ── */
+/* ── LOGO K — CTA orange, matches btn-primary ── */
 .logo-k {
-  color: var(--brand-gold);
+  color: var(--accent);
 }
 
 *, *::before, *::after {
