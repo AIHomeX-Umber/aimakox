@@ -39,11 +39,11 @@ const NAV_MENUS = {
         { name: "Small B 创业者", href: "/services/training" },
         { name: "Pro A 专业人士", href: "/services/training" },
       ]},
-      { title: "AI-Ready Verticals", items: [
-        { name: "智能硬件 · Smart Devices", href: "/industries/smart-devices" },
-        { name: "空间生活 · Space & Living", href: "/industries/space-living" },
-        { name: "自动化设备 · Automation Systems", href: "/industries/automation-systems" },
-        { name: "功能消费品 · Functional Goods", href: "/industries/functional-goods" },
+      { title: "Featured Transformations", items: [
+        { name: "Space Discoverer", href: "/cases#space-discoverer", desc: "AI-native DTC redesign" },
+        { name: "Smart Hardware Brand", href: "/cases#smart-hardware", desc: "AI support workflow" },
+        { name: "Bathroom Factory", href: "/cases#bathroom-factory", desc: "Follow-up automation" },
+        { name: "Export Workflow System", href: "/cases#export-workflow", desc: "AI content pipeline" },
       ]},
     ]
   },
@@ -280,7 +280,7 @@ export default function AimakoxHome() {
         .mm-item:hover { padding-left: 14px; border-left-color: rgba(245,158,11,0.45); }
         .mm-item-name { font-size: 13px; color: #aaa; font-weight: 500; line-height: 1.35; }
         .mm-item:hover .mm-item-name { color: #f0e6c8; }
-        .mm-item-desc { font-size: 11px; color: #444; margin-top: 2px; }
+        .mm-item-desc { font-size: 11px; color: #555; margin-top: 2px; letter-spacing: 0.2px; }
 
         /* ── HERO ── */
         .mx-hero { padding: 140px 40px 100px; position: relative; overflow: hidden; }
