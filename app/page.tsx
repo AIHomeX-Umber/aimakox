@@ -40,10 +40,10 @@ const NAV_MENUS = {
         { name: "Pro A 专业人士", href: "/services/training" },
       ]},
       { title: "AI-Ready Verticals", items: [
-        { name: "智能硬件 · Smart Devices", href: "/industries/smart-devices", desc: "IoT · 消费电子 · AI硬件 · 智能家居" },
-        { name: "空间生活 · Space & Living", href: "/industries/space-living", desc: "家具 · 壁床 · 储物系统 · 空间产品" },
-        { name: "自动化设备 · Automation Systems", href: "/industries/automation-systems", desc: "工业设备 · 自动化模组 · B2B机械" },
-        { name: "功能消费品 · Functional Goods", href: "/industries/functional-goods", desc: "厨卫 · 户外 · 五金 · 功能生活" },
+        { name: "智能硬件 · Smart Devices", href: "/industries/smart-devices" },
+        { name: "空间生活 · Space & Living", href: "/industries/space-living" },
+        { name: "自动化设备 · Automation Systems", href: "/industries/automation-systems" },
+        { name: "功能消费品 · Functional Goods", href: "/industries/functional-goods" },
       ]},
     ]
   },
@@ -273,13 +273,14 @@ export default function AimakoxHome() {
           color: #444; margin-bottom: 14px;
         }
         .mm-item {
-          display: block; padding: 8px 0; text-decoration: none;
-          transition: padding-left 0.2s;
+          display: block; padding: 7px 0 7px 10px; text-decoration: none;
+          border-left: 1.5px solid transparent;
+          transition: padding-left 0.18s, border-color 0.18s;
         }
-        .mm-item:hover { padding-left: 6px; }
-        .mm-item-name { font-size: 13px; color: #ccc; font-weight: 500; margin-bottom: 1px; }
-        .mm-item:hover .mm-item-name { color: #f59e0b; }
-        .mm-item-desc { font-size: 11px; color: #444; }
+        .mm-item:hover { padding-left: 14px; border-left-color: rgba(245,158,11,0.45); }
+        .mm-item-name { font-size: 13px; color: #aaa; font-weight: 500; line-height: 1.35; }
+        .mm-item:hover .mm-item-name { color: #f0e6c8; }
+        .mm-item-desc { font-size: 11px; color: #444; margin-top: 2px; }
 
         /* ── HERO ── */
         .mx-hero { padding: 140px 40px 100px; position: relative; overflow: hidden; }
