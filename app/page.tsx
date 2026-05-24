@@ -39,11 +39,11 @@ const NAV_MENUS = {
         { name: "Small B 创业者", href: "/services/training" },
         { name: "Pro A 专业人士", href: "/services/training" },
       ]},
-      { title: "按行业", items: [
-        { name: "家具 · Furniture", href: "/dtc" },
-        { name: "卫浴 · Bathroom", href: "/dtc" },
-        { name: "陶瓷 · Ceramics", href: "/dtc" },
-        { name: "五金 · Hardware", href: "/dtc" },
+      { title: "AI-Ready Verticals", items: [
+        { name: "智能硬件 · Smart Devices", href: "/industries/smart-devices", desc: "IoT · 消费电子 · AI硬件 · 智能家居" },
+        { name: "空间生活 · Space & Living", href: "/industries/space-living", desc: "家具 · 壁床 · 储物系统 · 空间产品" },
+        { name: "自动化设备 · Automation Systems", href: "/industries/automation-systems", desc: "工业设备 · 自动化模组 · B2B机械" },
+        { name: "功能消费品 · Functional Goods", href: "/industries/functional-goods", desc: "厨卫 · 户外 · 五金 · 功能生活" },
       ]},
     ]
   },
