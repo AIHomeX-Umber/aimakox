@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { DM_Serif_Display, DM_Mono, Syne } from 'next/font/google'
-import Nav from '@/components/Nav'
 import './globals.css'
 
 const dmSerif = DM_Serif_Display({
@@ -43,8 +42,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="zh"
       className={`${dmSerif.variable} ${dmMono.variable} ${syne.variable}`}
     >
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>
-        <Nav />
         {children}
       </body>
     </html>

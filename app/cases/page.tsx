@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
+import Nav from '@/components/Nav'
 
 export const metadata: Metadata = {
   title: 'Case Studies · Makox',
@@ -46,6 +47,7 @@ const cases = [
 export default function CasesPage() {
   return (
     <>
+      <Nav />
       {/* Header */}
       <section className="section" style={{ paddingTop: 72, paddingBottom: 0 }}>
         <div className="container">

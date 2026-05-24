@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
+import Nav from '@/components/Nav'
 
 export const metadata: Metadata = {
   title: 'AI Transformation Frameworks · Makox',
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 export default function FrameworksPage() {
   return (
     <>
+      <Nav />
       {/* Header */}
       <section className="section" style={{ paddingTop: 72, paddingBottom: 0 }}>
         <div className="container">

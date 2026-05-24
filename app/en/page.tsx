@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
+import Nav from '@/components/Nav'
 
 /* ── Service icons (SVG, brand gold stroke) ── */
 function ServiceIconSearch() {
@@ -81,6 +82,7 @@ export const metadata: Metadata = {
 export default function EnglishHomePage() {
   return (
     <>
+      <Nav />
       {/* ── SECTION 1: HERO ── */}
       <section className="section" style={{ paddingTop: 72 }}>
         <div className="container">
